@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="nextjs-template" width="880"></p>
+
 # nextjs-template
 
 A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
