@@ -2,12 +2,26 @@
 
 # nextjs-template
 
+[![Deploy on Hanzo](https://hanzo.app/deploy-badge.svg)](https://hanzo.app/new?template=https://github.com/hanzoai/nextjs-template)
+
 A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
 
-```
-bash
+## Quickstart
+
+Scaffold a new project from this template:
+
+```bash
 npx create-next-app -e https://github.com/hanzoai/nextjs-template
 ```
+
+Then install dependencies and start the dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000 to view it.
 
 ## Features
 
