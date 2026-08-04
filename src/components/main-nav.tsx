@@ -1,9 +1,7 @@
-import * as React from "react"
 import Link from "next/link"
 
 import { NavItem } from "@/types/nav"
 import { siteContent } from "@/content/site-content"
-import { cn } from "@/util"
 import { Icons } from "@/components/icons"
 
 interface MainNavProps {
@@ -12,23 +10,21 @@ interface MainNavProps {
 
 export function MainNav({ items }: MainNavProps) {
   return (
-    <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="h-6 w-6" />
-        <span className="inline-block font-bold">{siteContent.name}</span>
+    <div className="nav">
+      <Link href="/" className="nav__brand">
+        <Icons.logo className="icon--brand" />
+        <span>{siteContent.name}</span>
       </Link>
       {items?.length ? (
-        <nav className="flex gap-6">
-          {items?.map(
+        <nav className="nav__links">
+          {items.map(
             (item, index) =>
               item.href && (
                 <Link
                   key={index}
                   href={item.href}
-                  className={cn(
-                    "flex items-center text-sm font-medium text-muted-foreground",
-                    item.disabled && "cursor-not-allowed opacity-80"
-                  )}
+                  className="nav__link"
+                  aria-disabled={item.disabled}
                 >
                   {item.title}
                 </Link>

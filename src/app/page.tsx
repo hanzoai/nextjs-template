@@ -1,38 +1,32 @@
 import Link from "next/link"
+import { Button } from "@hanzo/ui"
 
 import { siteContent } from "@/content/site-content"
-import { buttonVariants } from "@/components/ui/button"
 
 export default function IndexPage() {
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          Beautifully designed components <br className="hidden sm:inline" />
-          built with Radix UI and Tailwind CSS.
-        </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
-        </p>
-      </div>
-      <div className="flex gap-4">
-        <Link
-          href={siteContent.links.docs}
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants()}
-        >
-          Documentation
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteContent.links.github}
-          className={buttonVariants({ variant: "outline" })}
-        >
-          GitHub
-        </Link>
+    <section className="container hero">
+      <h1 className="hero__title">
+        The Hanzo component library,
+        <br />
+        on one substrate.
+      </h1>
+      <p className="hero__lede">
+        Next.js App Router with @hanzo/ui on @hanzo/gui. Nothing is vendored:
+        components are imported, the identity is CSS custom properties, and the
+        same import renders on web, native and desktop.
+      </p>
+      <div className="hero__actions">
+        <Button asChild>
+          <Link href={siteContent.links.docs} target="_blank" rel="noreferrer">
+            Documentation
+          </Link>
+        </Button>
+        <Button asChild variant="outline">
+          <Link href={siteContent.links.github} target="_blank" rel="noreferrer">
+            GitHub
+          </Link>
+        </Button>
       </div>
     </section>
   )
