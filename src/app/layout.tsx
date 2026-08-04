@@ -1,12 +1,11 @@
 import "@/style/globals.css"
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
+import { GeistMono } from "geist/font/mono"
+import { GeistSans } from "geist/font/sans"
 
 import { siteContent } from "@/content/site-content"
-import { fontSans } from "@/style/fonts"
-import { cn } from "@/util"
 import { SiteHeader } from "@/components/site-header"
-import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeProvider } from "@/components/theme-provider"
+import { Providers } from "@/app/providers"
 
 export const metadata: Metadata = {
   title: {
@@ -14,10 +13,6 @@ export const metadata: Metadata = {
     template: `%s - ${siteContent.name}`,
   },
   description: siteContent.description,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -25,30 +20,33 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+}
+
 interface RootLayoutProps {
   children: React.ReactNode
 }
 
+// Geist Sans + Geist Mono are the Hanzo faces; `@hanzo/ui/theme.css` types
+// everything off `--font-geist-sans` / `--font-geist-mono`, which these two
+// classes bind. Self-hosted — a page load makes no third-party font request.
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
-          )}
-        >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-            </div>
-            <TailwindIndicator />
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+    <html
+      lang="en"
+      className={`dark ${GeistSans.variable} ${GeistMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body>
+        <Providers>
+          <SiteHeader />
+          <main>{children}</main>
+        </Providers>
+      </body>
+    </html>
   )
 }

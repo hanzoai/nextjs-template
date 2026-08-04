@@ -1,81 +1,172 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/**
+ * The one style import: the Hanzo identity, expressed as plain CSS custom
+ * properties. `--background`, `--foreground`, `--border`, `--muted-foreground`,
+ * `--radius` and the Geist font binding all come from here, light on `:root` and
+ * dark under `.dark` — the class the theme toggle flips. There is no utility
+ * framework in this template: app chrome is written as ordinary CSS against
+ * those tokens, components come from @hanzo/ui.
+ */
+@import '@hanzo/ui/theme.css';
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+html {
+  color-scheme: dark;
+}
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+html.light {
+  color-scheme: light;
+}
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+}
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+/* The single measure every page and the header share. */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+}
 
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  gap: 1rem;
+}
 
-    --ring: 215 20.2% 65.1%;
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-inline-start: auto;
+}
 
-    --radius: 0.5rem;
+/* ── Nav ────────────────────────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.nav__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+
+.nav__link:hover {
+  color: var(--foreground);
+}
+
+.nav__link[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* ── Page ───────────────────────────────────────────────────────────────── */
+.hero {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 1.5rem 2rem;
+}
+
+.hero__title {
+  max-width: 61.25rem;
+  margin: 0;
+  font-size: 1.875rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.hero__lede {
+  max-width: 43.75rem;
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-block: 2.5rem;
   }
 
-  .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
-
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
-
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
-
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 1.2%;
-
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-
-    --ring: 216 34% 17%;
-
-    --radius: 0.5rem;
+  .hero__title {
+    font-size: 2.25rem;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+/* ── Utility ────────────────────────────────────────────────────────────── */
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon--brand {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
