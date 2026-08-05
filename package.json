@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@hanzo/data": "^1.2.2",
-    "@hanzo/gui": "8.0.1",
-    "@hanzo/ui": "^8.0.39",
+    "@hanzo/gui": "8.0.2",
+    "@hanzo/ui": "^8.0.47",
     "@hanzogui/config": "8.0.1",
     "@hanzogui/next-theme": "8.0.0",
     "geist": "^1.7.0",
