@@ -11,9 +11,9 @@
     "tc": "tsc --noEmit"
   },
   "dependencies": {
-    "@hanzo/data": "^1.2.2",
-    "@hanzo/gui": "8.0.2",
-    "@hanzo/ui": "^8.0.47",
+    "@hanzo/data": "1.2.4",
+    "@hanzo/gui": "8.3.0",
+    "@hanzo/ui": "8.25.0",
     "@hanzogui/config": "8.0.1",
     "@hanzogui/next-theme": "8.0.0",
     "geist": "^1.7.0",
@@ -29,5 +29,6 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "typescript": "^5.9.3"
-  }
+  },
+  "packageManager": "pnpm@11.24.0"
 }
