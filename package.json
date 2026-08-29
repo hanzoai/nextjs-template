@@ -11,24 +11,24 @@
     "tc": "tsc --noEmit"
   },
   "dependencies": {
-    "@hanzo/data": "1.2.4",
-    "@hanzo/gui": "8.3.0",
-    "@hanzo/ui": "8.27.0",
-    "@hanzogui/config": "8.3.1",
-    "@hanzogui/next-theme": "8.3.1",
-    "geist": "^1.7.2",
-    "next": "16.3.3",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-native-svg": "^15.15.5",
-    "react-native-web": "^0.21.2",
-    "sharp": "^0.35.4"
+    "@hanzo/data": "catalog:",
+    "@hanzo/gui": "catalog:",
+    "@hanzo/ui": "catalog:",
+    "@hanzogui/config": "catalog:",
+    "@hanzogui/next-theme": "catalog:",
+    "geist": "catalog:",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-native-svg": "catalog:",
+    "react-native-web": "catalog:",
+    "sharp": "catalog:"
   },
   "devDependencies": {
-    "@types/node": "26.4.0",
-    "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.5",
-    "typescript": "7.0.2"
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "typescript": "catalog:"
   },
   "packageManager": "pnpm@11.24.0"
 }
