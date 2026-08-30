@@ -1,7 +1,7 @@
 catalog:
   '@hanzo/data': '1.2.4'
   '@hanzo/gui': '8.3.1'
-  '@hanzo/ui': '8.27.0'
+  '@hanzo/ui': '8.27.2'
   '@hanzogui/config': '8.3.1'
   '@hanzogui/next-theme': '8.3.1'
   '@types/node': '26.4.0'
