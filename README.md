@@ -2,6 +2,8 @@
 
 # nextjs-template
 
+[![Open in Hanzo](https://hanzo.app/badges/open-in-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/hanzoai/nextjs-template&ref=main&action=open) [![Edit with Hanzo](https://hanzo.app/badges/edit-with-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/hanzoai/nextjs-template&ref=main&action=edit) [![Deploy with Hanzo](https://hanzo.app/badges/deploy-with-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/hanzoai/nextjs-template&ref=main&action=deploy)
+
 A Next.js template for building Hanzo apps with [@hanzo/ui](https://www.npmjs.com/package/@hanzo/ui) on [@hanzo/gui](https://www.npmjs.com/package/@hanzo/gui). Nothing is vendored: components are imported, the identity is CSS custom properties, and the same import renders on web, native and desktop.
 
 ```bash
